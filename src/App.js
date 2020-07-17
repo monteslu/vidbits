@@ -229,7 +229,7 @@ function App() {
           ctxB8G.putImageData(B8GData, 0 , 0);
 
           for(let i = 0; i < (B8GData.data.length / 4); i++) {
-            const val = B8GData.data[i * 4] >> 4 << 4;
+            const val = (B8GData.data[i * 4] >> 4) << 4;
             B8GData.data[i * 4] = val;
             B8GData.data[i * 4 + 1] = val;
             B8GData.data[i * 4 + 2] = val;
@@ -237,7 +237,7 @@ function App() {
           ctxB4G.putImageData(B8GData, 0 , 0);
 
           for(let i = 0; i < (B8GData.data.length / 4); i++) {
-            const val = B8GData.data[i * 4] >> 6 << 6;
+            const val = (B8GData.data[i * 4] >> 6) << 6;
             B8GData.data[i * 4] = val;
             B8GData.data[i * 4 + 1] = val;
             B8GData.data[i * 4 + 2] = val;
@@ -368,17 +368,17 @@ function App() {
       </div>
 
       <div className="vidDisplay" style={{display}}>
-        <div className="vidText">2bit(<a href="https://en.wikipedia.org/wiki/Color_Graphics_Adapter" target="_blank">CGA</a>) - 1,0,1</div>
+        <div className="vidText">2bit(<a rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Color_Graphics_Adapter" target="_blank">CGA</a>) - 1,0,1</div>
         <canvas ref={canvasRefB2NoGreen}/>
       </div>
 
       <div className="vidDisplay" style={{display}}>
-        <div className="vidText">2bit(<a href="https://en.wikipedia.org/wiki/Color_Graphics_Adapter" target="_blank">CGA</a>) - 1,1,0</div>
+        <div className="vidText">2bit(<a rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Color_Graphics_Adapter" target="_blank">CGA</a>) - 1,1,0</div>
         <canvas ref={canvasRefB2NoBlue}/>
       </div>
 
       <div className="vidDisplay" style={{display}}>
-        <div className="vidText">2bit(<a href="https://en.wikipedia.org/wiki/Color_Graphics_Adapter" target="_blank">CGA</a>) - 0,1,1</div>
+        <div className="vidText">2bit(<a rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Color_Graphics_Adapter" target="_blank">CGA</a>) - 0,1,1</div>
         <canvas ref={canvasRefB2NoRed}/>
       </div>
 
@@ -388,7 +388,7 @@ function App() {
       </div>
 
       <div className="vidDisplay" style={{display}}>
-        <div className="vidText"><a href="https://en.wikipedia.org/wiki/Sepia_(color)" target="_blank">Sepia</a> - 8bit(256 shades)</div>
+        <div className="vidText"><a rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Sepia_(color)" target="_blank">Sepia</a> - 8bit(256 shades)</div>
         <canvas ref={canvasRefSepia}/>
       </div>
 
@@ -413,22 +413,22 @@ function App() {
       </div>
 
       <div className="vidDisplay" style={{display}}>
-        <div className="vidText">1bit(black & white) - <a href="https://en.wikipedia.org/wiki/Floyd%E2%80%93Steinberg_dithering" target="_blank">dithered</a></div>
+        <div className="vidText">1bit(black & white) - <a rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Floyd%E2%80%93Steinberg_dithering" target="_blank">dithered</a></div>
         <canvas ref={canvasRefFS}/>
       </div>
 
       <div className="vidDisplay" style={{display}}>
-        <div className="vidText">4bit(1,1,1-8colors) + <a href="https://en.wikipedia.org/wiki/Floyd%E2%80%93Steinberg_dithering" target="_blank">dither</a> bit</div>
+        <div className="vidText">4bit(1,1,1-8colors) + <a rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Floyd%E2%80%93Steinberg_dithering" target="_blank">dither</a> bit</div>
         <canvas ref={canvasRefDM4}/>
       </div>
 
       <div className="vidDisplay" style={{display}}>
-        <div className="vidText">8bit(2,3,2-128colors) + <a href="https://en.wikipedia.org/wiki/Floyd%E2%80%93Steinberg_dithering" target="_blank">dither</a></div>
+        <div className="vidText">8bit(2,3,2-128colors) + <a rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Floyd%E2%80%93Steinberg_dithering" target="_blank">dither</a></div>
         <canvas ref={canvasRefDM8}/>
       </div>
       
       <br/><br/>
-      <a href="https://github.com/monteslu/vidbits" target="_blank">source on github</a>
+      <a rel="noopener noreferrer" href="https://github.com/monteslu/vidbits" target="_blank">source on github</a>
     </div>
   );
 }
