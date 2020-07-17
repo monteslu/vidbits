@@ -1,3 +1,12 @@
+# webcam demos
+
+Just messing around with color depths and image formats.
+
+Live demo: [https://vidbits.netlify.app/](https://vidbits.netlify.app/)
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
