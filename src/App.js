@@ -25,6 +25,7 @@ function App() {
 
   const canvasRefTB = useRef();
   const canvasRefB16 = useRef();
+  const canvasRefB12 = useRef();
   const canvasRefB8G = useRef();
   const canvasRefB4G = useRef();
   const canvasRefB2G = useRef();
@@ -127,6 +128,7 @@ function App() {
       const {ct: ctxSepia} = getCC(canvasRefSepia);
       const {ct: ctxTB} = getCC(canvasRefTB);
       const {ct: ctxB16} = getCC(canvasRefB16);
+      const {ct: ctxB12} = getCC(canvasRefB12);
 
       function getImgData() {
         return offCtx.getImageData(0, 0, width, height);
@@ -146,6 +148,15 @@ function App() {
             B16Data.data[i * 4 + 2] = (B16Data.data[i * 4 + 2] >> 3) << 3;
           }
           ctxB16.putImageData(B16Data, 0 , 0);
+
+          // 12-bit
+          const B12Data = getImgData();
+          for(let i = 0; i < (B12Data.data.length / 4); i++) {
+            B12Data.data[i * 4] = (B12Data.data[i * 4] >> 4) << 4;
+            B12Data.data[i * 4 + 1] = (B12Data.data[i * 4 + 1] >> 4) << 4;
+            B12Data.data[i * 4 + 2] = (B12Data.data[i * 4 + 2] >> 4) << 4;
+          }
+          ctxB12.putImageData(B12Data, 0 , 0);
 
           const B8Data = getImgData();
           for(let i = 0; i < (B8Data.data.length / 4); i++) {
@@ -335,6 +346,11 @@ function App() {
       <div className="vidDisplay" style={{display}}>
         <div className="vidText">16bit - 5,6,5(65K colors)</div>
         <canvas ref={canvasRefB16}/>
+      </div>
+
+      <div className="vidDisplay" style={{display}}>
+        <div className="vidText">12bit - 4,4,4(4096 colors)</div>
+        <canvas ref={canvasRefB12}/>
       </div>
 
       <div className="vidDisplay" style={{display}}>
