@@ -27,6 +27,7 @@ function App() {
   const canvasRefB16 = useRef();
   const canvasRefB12 = useRef();
   const canvasRefB8G = useRef();
+  const canvasRefB7 = useRef();
   const canvasRefB4G = useRef();
   const canvasRefB2G = useRef();
 
@@ -107,6 +108,7 @@ function App() {
       
       
       const {ct: ctxB8} = getCC(canvasRefB8);
+      const {ct: ctxB7} = getCC(canvasRefB7);
       const {ct: ctxB6} = getCC(canvasRefB6);
       const {ct: ctxB4} = getCC(canvasRefB4);
       const {ct: ctxB4Red} = getCC(canvasRefB4Red);
@@ -165,6 +167,14 @@ function App() {
             B8Data.data[i * 4 + 2] = (B8Data.data[i * 4 + 2] >> 6) << 6;
           }
           ctxB8.putImageData(B8Data, 0 , 0);
+
+          const B7Data = getImgData();
+          for(let i = 0; i < (B7Data.data.length / 4); i++) {
+            B7Data.data[i * 4] = (B7Data.data[i * 4] >> 6) << 6;
+            B7Data.data[i * 4 + 1] = (B7Data.data[i * 4 + 1] >> 5) << 5;
+            B7Data.data[i * 4 + 2] = (B7Data.data[i * 4 + 2] >> 6) << 6;
+          }
+          ctxB7.putImageData(B7Data, 0 , 0);
 
           const B6Data = getImgData();
           for(let i = 0; i < (B6Data.data.length / 4); i++) {
@@ -356,6 +366,11 @@ function App() {
       <div className="vidDisplay" style={{display}}>
         <div className="vidText">8bit - 3,3,2(256 colors)</div>
         <canvas ref={canvasRefB8}/>
+      </div>
+
+      <div className="vidDisplay" style={{display}}>
+        <div className="vidText">7bit - 2,3,2(128 colors)</div>
+        <canvas ref={canvasRefB7}/>
       </div>
 
       <div className="vidDisplay" style={{display}}>
