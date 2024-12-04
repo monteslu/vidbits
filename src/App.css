@@ -4,6 +4,10 @@
   flex-wrap: wrap;
 }
 
+.vidText {
+  transform: scaleX(-1);
+}
+
 .vidDisplay {
   border: 1px solid black;
   margin: 5px;
